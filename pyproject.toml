@@ -12,4 +12,5 @@ dependencies = [
     "numpy",
     "psycopg2-binary", 
     "streamlit",
+    "unidecode"
 ]

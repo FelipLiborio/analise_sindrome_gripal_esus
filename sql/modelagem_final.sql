@@ -32,8 +32,8 @@ CREATE TABLE Notificacao (
     id_pessoa INTEGER NOT NULL REFERENCES Pessoa(id_pessoa),
     id_localizacao INTEGER NOT NULL REFERENCES Localizacao(id_localizacao),
 
-    data_notificacao DATE NOT NULL, 
-    data_inicio_sintomas DATE NOT NULL, 
+    data_notificacao DATE , 
+    data_inicio_sintomas DATE , 
     data_encerramento DATE, 
     
     evolucao_caso VARCHAR(50) NOT NULL,
@@ -52,8 +52,8 @@ CREATE TABLE Vacinacao (
     
     id_notificacao INTEGER PRIMARY KEY REFERENCES Notificacao(id_notificacao),
 
-    codigo_recebeu_vacina VARCHAR(1) NOT NULL, 
-    codigo_doses_vacina VARCHAR(1), 
+    codigo_recebeu_vacina VARCHAR(10) NOT NULL, 
+    codigo_doses_vacina VARCHAR(10), 
     
     data_primeira_dose DATE, 
     codigo_laboratorio_primeira_dose TEXT,
