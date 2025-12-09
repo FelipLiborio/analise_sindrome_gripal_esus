@@ -1,0 +1,24 @@
+services:
+  postgres:
+    build: .
+    container_name: esus_postgres
+    environment:
+      POSTGRES_USER: esus_user
+      POSTGRES_PASSWORD: esus_password
+      POSTGRES_DB: esus_gripal
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+# Credenciais de adcalhost
+#   porta: 5432
+#   usuário: esus_user
+#   senha: esus_password
+#   banco: esus_gripal
+
+# para rodar:
+#   docker compose up --build -d
+
+# para resetar o volume de dados (apagar tudo):
+#   docker compose down -v
+#   docker compose up --build -d
