@@ -1,0 +1,15 @@
+[project]
+name = "dashboard_esus_notifica"
+version = "0.1.0"
+description = "Projeto de BD e BI para análise de notificações de Síndrome Gripal."
+authors = [
+    {name = "Felipe Liborio", email = "felipesouzaliborio@gmail.com"},
+]
+requires-python = ">=3.13" 
+
+dependencies = [
+    "pandas",
+    "numpy",
+    "psycopg2-binary", 
+    "streamlit",
+]

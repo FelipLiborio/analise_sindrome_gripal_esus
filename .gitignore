@@ -1,0 +1,18 @@
+# Ambiente virtual
+.venv/
+venv/
+env/
+
+# Arquivos de bytecode compilado
+__pycache__/
+*.pyc
+*.pyd
+
+# Pastas de metadados de instalação (como .egg-info)
+*.egg-info/
+dist/
+build/
+
+# Arquivos de configuração local (como senhas de banco de dados)
+*.env
+.env

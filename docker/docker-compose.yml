@@ -1,0 +1,11 @@
+services:
+  postgres:
+    build: .
+    container_name: esus_postgres
+    environment:
+      POSTGRES_USER: esus_user
+      POSTGRES_PASSWORD: esus_password
+      POSTGRES_DB: esus_gripal
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
