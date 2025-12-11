@@ -15,7 +15,7 @@ def pg(v):
 # -----------------------------
 # 1. Carregar CSV
 # -----------------------------
-df = pd.read_csv("data/main/data_tratado.csv")
+df = pd.read_csv("../data/main/data_tratado.csv")
 
 
 # -----------------------------

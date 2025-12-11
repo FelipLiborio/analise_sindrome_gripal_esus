@@ -10,7 +10,10 @@ requires-python = ">=3.13"
 dependencies = [
     "pandas",
     "numpy",
-    "psycopg2-binary", 
+    "psycopg2-binary",
     "streamlit",
-    "unidecode"
+    "unidecode",
+    "plotly",
+    "sqlalchemy",
+    "geopandas>=1.1.1",
 ]

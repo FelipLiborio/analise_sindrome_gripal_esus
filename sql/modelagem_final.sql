@@ -36,11 +36,10 @@ CREATE TABLE Notificacao (
     data_inicio_sintomas DATE , 
     data_encerramento DATE, 
     
-    evolucao_caso VARCHAR(50) NOT NULL,
-    classificacao_final VARCHAR(50) NOT NULL,
-    
-    codigo_estrategia_covid NUMERIC(1) NOT NULL, 
-    codigo_local_realizacao_testagem NUMERIC(1) NOT NULL,
+    evolucao_caso VARCHAR(50) NOT NULL, -- Desfecho do paciente (Em tratamento, Internado, Óbito, Cura)[cite: 82, 85].
+    classificacao_final VARCHAR(50) NOT NULL, -- Classificação final (Valores: Confirmado Laboratorial, Confirmado Clínico-Epidemiológico, Descartado, Síndrome Gripal não Especificada, Confirmado Clínico-Imagem, Confirmado por Critério Clínico).
+    codigo_estrategia_covid NUMERIC(1) NOT NULL, -- Estratégia: 1=Diagnóstico assistencial, 2=Busca ativa, 3=Triagem de população específica.
+    codigo_local_realizacao_testagem NUMERIC(1) NOT NULL, -- Local: 1=Serviço de saúde, 2=Local de trabalho, 3=Aeroporto, 4=Farmácia/Drogaria, 5=Escola, 6=Domicílio/Comunidade, 7=Outro.
     origem VARCHAR(50) NOT NULL,
     excluido VARCHAR(10) NOT NULL,
     validado VARCHAR(10) NOT NULL
@@ -52,15 +51,15 @@ CREATE TABLE Vacinacao (
     
     id_notificacao INTEGER PRIMARY KEY REFERENCES Notificacao(id_notificacao),
 
-    codigo_recebeu_vacina VARCHAR(10) NOT NULL, 
-    codigo_doses_vacina VARCHAR(10), 
+    codigo_recebeu_vacina VARCHAR(10) NOT NULL, -- Status: 1=Sim, 2=Não, 3=Ignorado.
+    codigo_doses_vacina VARCHAR(10), --Dose: 1=1ª Dose, 2=2ª Dose.
     
     data_primeira_dose DATE, 
-    codigo_laboratorio_primeira_dose TEXT,
+    codigo_laboratorio_primeira_dose TEXT, -- Laboratório produtor da 1ª dose.(nome mesmo)
     lote_primeira_dose TEXT,
 
     data_segunda_dose DATE, 
-    codigo_laboratorio_segunda_dose TEXT,
+    codigo_laboratorio_segunda_dose TEXT, -- Laboratório produtor da 2ª dose.(nome mesmo)
     lote_segunda_dose TEXT
 );
 
@@ -74,11 +73,11 @@ CREATE TABLE TesteLaboratorial (
 
     total_testes_realizados INTEGER NOT NULL,
 
-    codigo_estado_teste FLOAT,
-    codigo_tipo_teste FLOAT,
-    codigo_resultado_teste FLOAT,
-    codigo_fabricante_teste FLOAT,
-    data_coleta_teste DATE
+    codigo_estado_teste FLOAT, -- Estado: 1=Solicitado, 2=Concluído, 3=Coletado, 4=Não Solicitado.
+    codigo_tipo_teste FLOAT, -- Tipo: 1=RT-PCR, 4=Teste rápido de antígeno, 9=Anticorpos totais, etc.
+    codigo_resultado_teste FLOAT, -- Resultado: 1=Reagente/Detectável, 2=Não Reagente/Não detectável, 9=Inválido/Inconclusivo.
+    codigo_fabricante_teste FLOAT, -- Código do fabricante (quando for Teste Rápido Antígeno).
+    data_coleta_teste DATE 
 );
 
 ---
